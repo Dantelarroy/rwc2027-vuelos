@@ -55,18 +55,19 @@ margin-top:12px}
 p.vacio{margin-top:0}
 .banda{background:var(--aviso);color:var(--superficie);border-radius:8px;padding:8px 12px;font-weight:600}
 .pie{margin-top:32px}
+h2 small.moneda{font-size:13px;font-weight:400;color:var(--texto2);margin-left:6px}
 </style></head><body><main>
 <h1>Vuelos RWC 2027</h1>
 <p class='nota'>Argentina–Fiji, sábado 16/10/2027 13:15, Adelaide Oval. Hay que llegar a Adelaide hasta el
 jueves 14/10 (si llega el viernes 15/10 queda marcado como <span class='justo'>justo</span>).
 Vuelta desde Sydney el 07/11 u 08/11, después de las semifinales del 05 y 06/11.</p>
-<p class='nota'>Actualizado 21/10/2026 16:18 (hora de España).</p>
+<p class='nota'>Actualizado 21/10/2026 16:24 (hora de España).</p>
 <section class='tarjetas'><div class='tarjeta'><span>Estado</span><span class='aviso'>⏳ Esperando a Google</span><small>Google abre estas fechas el ~15/11/2026 (ida) y ~12/12/2026 (vuelta). Hasta entonces no hay precios para mostrar.</small></div>
 <div class='tarjeta'><span>Cómo se arma el viaje</span><small><b>2 pasajes:</b> solo ida a Adelaide, Melbourne o Sydney
 (más un vuelo interno a Adelaide si hace falta) y solo ida Sydney → casa.<br><b>Ida y vuelta Sydney:</b> un pasaje
 ida y vuelta a Sydney más el interno Sydney → Adelaide.</small></div></section>
-<h2>Desde Barcelona</h2><section class='tarjetas'><div class='tarjeta'><span>Más barato hoy</span><b>—</b><small>Sin precios todavía</small></div><div class='tarjeta'><span>Cambio</span><b>—</b><small>Falta el dato de ayer</small></div><div class='tarjeta'><span>Mejor desde que empezó</span><b>—</b><small>Sin precios todavía</small></div></section><div class='vacio'>Todavía no hay precios para este viaje. Apenas Google muestre las fechas, acá aparecen las mejores combinaciones, los rangos de precio y la evolución diaria.</div><h3>Total más barato de cada día</h3><p class='nota vacio'>Todavía no hay historia: el gráfico aparece con el primer precio.</p><h2>Desde Buenos Aires</h2><section class='tarjetas'><div class='tarjeta'><span>Más barato hoy</span><b>—</b><small>Sin precios todavía</small></div><div class='tarjeta'><span>Cambio</span><b>—</b><small>Falta el dato de ayer</small></div><div class='tarjeta'><span>Mejor desde que empezó</span><b>—</b><small>Sin precios todavía</small></div></section><div class='vacio'>Todavía no hay precios para este viaje. Apenas Google muestre las fechas, acá aparecen las mejores combinaciones, los rangos de precio y la evolución diaria.</div><h3>Total más barato de cada día</h3><p class='nota vacio'>Todavía no hay historia: el gráfico aparece con el primer precio.</p>
-<p class='nota pie'>Precios por persona en EUR, 1 adulto, clase económica, solo lo que muestra Google Flights.
+<h2>Desde Barcelona <small class='moneda'>precios en EUR</small></h2><section class='tarjetas'><div class='tarjeta'><span>Más barato hoy</span><b>—</b><small>Sin precios todavía</small></div><div class='tarjeta'><span>Cambio</span><b>—</b><small>Falta el dato de ayer</small></div><div class='tarjeta'><span>Mejor desde que empezó</span><b>—</b><small>Sin precios todavía</small></div></section><div class='vacio'>Todavía no hay precios para este viaje. Apenas Google muestre las fechas, acá aparecen las mejores combinaciones, los rangos de precio y la evolución diaria.</div><h3>Total más barato de cada día</h3><p class='nota vacio'>Todavía no hay historia: el gráfico aparece con el primer precio.</p><h2>Desde Buenos Aires <small class='moneda'>precios en USD</small></h2><section class='tarjetas'><div class='tarjeta'><span>Más barato hoy</span><b>—</b><small>Sin precios todavía</small></div><div class='tarjeta'><span>Cambio</span><b>—</b><small>Falta el dato de ayer</small></div><div class='tarjeta'><span>Mejor desde que empezó</span><b>—</b><small>Sin precios todavía</small></div></section><div class='vacio'>Todavía no hay precios para este viaje. Apenas Google muestre las fechas, acá aparecen las mejores combinaciones, los rangos de precio y la evolución diaria.</div><h3>Total más barato de cada día</h3><p class='nota vacio'>Todavía no hay historia: el gráfico aparece con el primer precio.</p>
+<p class='nota pie'>Precios por persona (desde Barcelona en EUR, desde Buenos Aires en USD), 1 adulto, clase económica, solo lo que muestra Google Flights.
 Cada precio se descarta a las 8 h hasta que se vuelve a consultar; al reservar
 puede cambiar. Los horarios son locales de cada aeropuerto. Entre el internacional y el interno se pide un margen
 de 2 h 00.</p>
@@ -81,7 +82,8 @@ document.querySelectorAll('.lienzo[data-datos]').forEach(lienzo => {
     DATOS.series.forEach(s => {
       const v = s.valores[i];
       html += '<div><span><i class="' + s.clase + '"></i>' + s.nombre + '</span><b>' +
-              (v ? Math.round(v).toLocaleString('es-ES') + ' €' : '—') + '</b></div>';
+              (v ? (DATOS.moneda === 'EUR' ? Math.round(v).toLocaleString('es-ES') + ' €'
+                   : DATOS.simbolo + ' ' + Math.round(v).toLocaleString('es-ES')) : '—') + '</b></div>';
     });
     globo.innerHTML = html; globo.hidden = false;
     const escala = svg.getBoundingClientRect().width / svg.viewBox.baseVal.width;
