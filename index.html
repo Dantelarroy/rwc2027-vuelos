@@ -1,0 +1,98 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Vuelos RWC 2027</title>
+<style>
+:root{color-scheme:light;--fondo:#f6f6f4;--superficie:#fcfcfb;--texto:#0b0b0b;--texto2:#52514e;--borde:#e2e1dc;
+--grilla:#ecebe7;--s1:#2a78d6;--s2:#eb6834;--s3:#1baf7a;--ok:#dff3e4;--bien:#1f7a3a;--aviso:#a35a00}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--fondo:#111110;
+--superficie:#1a1a19;--texto:#fff;--texto2:#c3c2b7;--borde:#383835;--grilla:#2a2a28;--s1:#3987e5;--s2:#d95926;
+--s3:#199e70;--ok:#1d3a26;--bien:#6fcf8a;--aviso:#f0a945}}
+:root[data-theme="dark"]{color-scheme:dark;--fondo:#111110;--superficie:#1a1a19;--texto:#fff;--texto2:#c3c2b7;
+--borde:#383835;--grilla:#2a2a28;--s1:#3987e5;--s2:#d95926;--s3:#199e70;--ok:#1d3a26;--bien:#6fcf8a;--aviso:#f0a945}
+*{box-sizing:border-box}
+body{margin:0;background:var(--fondo);color:var(--texto);font:15px/1.45 "Segoe UI",system-ui,sans-serif}
+main{max-width:1000px;margin:0 auto;padding:24px 16px 48px}
+h1{font-size:24px;margin:0 0 4px}h2{font-size:18px;margin:32px 0 10px}
+a{color:var(--s1)}.nota{color:var(--texto2);font-size:13px;margin:4px 0}
+.tarjetas{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:18px}
+.tarjeta{background:var(--superficie);border:1px solid var(--borde);border-radius:10px;padding:14px;
+display:flex;flex-direction:column;gap:4px}
+.tarjeta span{color:var(--texto2);font-size:13px}.tarjeta b{font-size:24px}
+.tarjeta small{color:var(--texto2);font-size:12.5px}
+.tarjeta .bien{color:var(--bien);font-weight:600;font-size:16px}.tarjeta .aviso{color:var(--aviso);font-weight:600;font-size:16px}
+table{border-collapse:collapse;width:100%;background:var(--superficie);border:1px solid var(--borde);border-radius:10px;
+overflow:hidden;font-size:14px}
+td,th{padding:7px 10px;border-bottom:1px solid var(--borde);text-align:left}th{color:var(--texto2);font-weight:600}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.ok{background:var(--ok);font-weight:600}
+details{margin-top:8px}summary{cursor:pointer;color:var(--texto2);font-size:13px;margin-bottom:8px}
+.leyenda{display:flex;flex-wrap:wrap;gap:16px;font-size:13px;color:var(--texto2);margin-bottom:6px}
+.leyenda span{display:flex;align-items:center;gap:6px}
+.muestra{display:inline-block;width:14px;height:3px;border-radius:2px}
+.muestra.s1,.globo .s1{background:var(--s1)}.muestra.s2,.globo .s2{background:var(--s2)}.muestra.s3,.globo .s3{background:var(--s3)}
+.lienzo{position:relative;background:var(--superficie);border:1px solid var(--borde);border-radius:10px;padding:8px}
+svg{display:block;width:100%;height:auto;font-family:inherit}
+.grilla{stroke:var(--grilla);stroke-width:1}.eje{fill:var(--texto2);font-size:11px}
+.umbral{stroke:var(--texto2);stroke-width:1.5;stroke-dasharray:5 4}
+.linea{fill:none;stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+.linea.s1{stroke:var(--s1)}.linea.s2{stroke:var(--s2)}.linea.s3{stroke:var(--s3)}
+.punto{stroke:var(--superficie);stroke-width:2}.punto.s1{fill:var(--s1)}.punto.s2{fill:var(--s2)}.punto.s3{fill:var(--s3)}
+.etiqueta{fill:var(--texto);font-size:12px;font-weight:600}
+.zona{fill:transparent;cursor:crosshair}.cruz{stroke:var(--texto2);stroke-width:1}
+.globo{position:absolute;top:8px;pointer-events:none;background:var(--superficie);border:1px solid var(--borde);
+border-radius:8px;padding:8px 10px;font-size:12.5px;box-shadow:0 4px 14px rgba(0,0,0,.15);min-width:170px}
+.globo div{display:flex;align-items:center;gap:6px;justify-content:space-between}
+.globo i{display:inline-block;width:10px;height:3px;border-radius:2px;margin-right:4px}
+
+h3{font-size:15px;margin:22px 0 8px;color:var(--texto2)}
+h2{border-top:1px solid var(--borde);padding-top:24px;margin-top:36px}
+.tabla{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--borde);border-radius:10px}
+.tabla table{border:0;border-radius:0}.tabla table.ancha{min-width:900px}
+td{vertical-align:top}td small{color:var(--texto2)}.tarjeta small b{font-size:inherit;color:var(--texto)}
+.justo{display:inline-block;background:var(--aviso);color:var(--superficie);border-radius:6px;padding:0 6px;
+font-size:12px;font-weight:700;line-height:18px}
+.vacio{background:var(--superficie);border:1px dashed var(--borde);border-radius:10px;padding:18px;color:var(--texto2);
+margin-top:12px}
+p.vacio{margin-top:0}
+.banda{background:var(--aviso);color:var(--superficie);border-radius:8px;padding:8px 12px;font-weight:600}
+.pie{margin-top:32px}
+</style></head><body><main>
+<h1>Vuelos RWC 2027</h1>
+<p class='nota'>Argentina–Fiji, sábado 16/10/2027 13:15, Adelaide Oval. Hay que llegar a Adelaide hasta el
+jueves 14/10 (si llega el viernes 15/10 queda marcado como <span class='justo'>justo</span>).
+Vuelta desde Sydney el 07/11 u 08/11, después de las semifinales del 05 y 06/11.</p>
+<p class='nota'>Actualizado 21/10/2026 16:15 (hora de España).</p>
+<section class='tarjetas'><div class='tarjeta'><span>Estado</span><span class='aviso'>⏳ Esperando a Google</span><small>Google abre estas fechas el ~15/11/2026 (ida) y ~12/12/2026 (vuelta). Hasta entonces no hay precios para mostrar.</small></div>
+<div class='tarjeta'><span>Cómo se arma el viaje</span><small><b>2 pasajes:</b> solo ida a Adelaide, Melbourne o Sydney
+(más un vuelo interno a Adelaide si hace falta) y solo ida Sydney → casa.<br><b>Ida y vuelta Sydney:</b> un pasaje
+ida y vuelta a Sydney más el interno Sydney → Adelaide.</small></div></section>
+<h2>Desde Barcelona</h2><section class='tarjetas'><div class='tarjeta'><span>Más barato hoy</span><b>—</b><small>Sin precios todavía</small></div><div class='tarjeta'><span>Cambio</span><b>—</b><small>Falta el dato de ayer</small></div><div class='tarjeta'><span>Mejor desde que empezó</span><b>—</b><small>Sin precios todavía</small></div></section><div class='vacio'>Todavía no hay precios para este viaje. Apenas Google muestre las fechas, acá aparecen las mejores combinaciones, los rangos de precio y la evolución diaria.</div><h3>Total más barato de cada día</h3><p class='nota vacio'>Todavía no hay historia: el gráfico aparece con el primer precio.</p><h2>Desde Buenos Aires</h2><section class='tarjetas'><div class='tarjeta'><span>Más barato hoy</span><b>—</b><small>Sin precios todavía</small></div><div class='tarjeta'><span>Cambio</span><b>—</b><small>Falta el dato de ayer</small></div><div class='tarjeta'><span>Mejor desde que empezó</span><b>—</b><small>Sin precios todavía</small></div></section><div class='vacio'>Todavía no hay precios para este viaje. Apenas Google muestre las fechas, acá aparecen las mejores combinaciones, los rangos de precio y la evolución diaria.</div><h3>Total más barato de cada día</h3><p class='nota vacio'>Todavía no hay historia: el gráfico aparece con el primer precio.</p>
+<p class='nota pie'>Precios por persona en EUR, 1 adulto, clase económica, solo lo que muestra Google Flights.
+Cada precio se descarta a las 8 h hasta que se vuelve a consultar; al reservar
+puede cambiar. Los horarios son locales de cada aeropuerto. Entre el internacional y el interno se pide un margen
+de 2 h 00.</p>
+</main><script>
+document.querySelectorAll('.lienzo[data-datos]').forEach(lienzo => {
+  const DATOS = JSON.parse(lienzo.dataset.datos), svg = lienzo.querySelector('svg'),
+        globo = lienzo.querySelector('.globo'), cruz = svg.querySelector('.cruz');
+  function mostrar(i){
+    const x = DATOS.x[i];
+    cruz.setAttribute('x1', x); cruz.setAttribute('x2', x); cruz.setAttribute('visibility', 'visible');
+    let html = '<b>' + DATOS.dias[i] + '</b>';
+    DATOS.series.forEach(s => {
+      const v = s.valores[i];
+      html += '<div><span><i class="' + s.clase + '"></i>' + s.nombre + '</span><b>' +
+              (v ? Math.round(v).toLocaleString('es-ES') + ' €' : '—') + '</b></div>';
+    });
+    globo.innerHTML = html; globo.hidden = false;
+    const escala = svg.getBoundingClientRect().width / svg.viewBox.baseVal.width;
+    let izq = x * escala + 24;
+    if (izq + globo.offsetWidth > lienzo.clientWidth) izq = x * escala - globo.offsetWidth - 8;
+    globo.style.left = Math.max(8, izq) + 'px';
+  }
+  svg.querySelectorAll('.zona').forEach(z => {
+    z.addEventListener('pointerenter', () => mostrar(+z.dataset.i));
+    z.addEventListener('pointerdown', () => mostrar(+z.dataset.i));
+  });
+  svg.addEventListener('pointerleave', () => { globo.hidden = true; cruz.setAttribute('visibility', 'hidden'); });
+});
+</script></body></html>
